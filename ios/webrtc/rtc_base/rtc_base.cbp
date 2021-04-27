@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="rtc_base"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\api\;CMake Files\audio\;CMake Files\common_audio\;CMake Files\modules\;CMake Files\rtc_base\;CMake Files\system_wrappers\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="librtcbase">
+				<Option output="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/librtcbase.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWEBRTC_MAC"/>
+					<Add option="-DWEBRTC_POSIX"/>
+					<Add option="-DWEBRTC_APM_DEBUG_DUMP=0"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/ksconfig.h"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/absl"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/api"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/audio"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/common_audio"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/modules"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/rtc_base"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/system_wrappers"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 librtcbase"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="librtcbase/fast">
+				<Option output="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/librtcbase.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWEBRTC_MAC"/>
+					<Add option="-DWEBRTC_POSIX"/>
+					<Add option="-DWEBRTC_APM_DEBUG_DUMP=0"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/ksconfig.h"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/absl"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/api"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/audio"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/common_audio"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/modules"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/rtc_base"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/system_wrappers"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 librtcbase/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/checks.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/checks.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/logging.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/logging.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/platform_thread_types.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/platform_thread_types.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/race_checker.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/race_checker.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/string_encode.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/string_encode.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/string_to_number.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/string_to_number.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/string_utils.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/string_utils.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/strings/string_builder.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/strings/string_builder.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/system/file_wrapper.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/system/file_wrapper.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/system_time.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/system_time.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/time_utils.cc">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/time_utils.h">
+			<Option target="librtcbase"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/api/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\api\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\audio\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/common_audio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\common_audio\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/modules/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\modules\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\rtc_base\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/system_wrappers/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\system_wrappers\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

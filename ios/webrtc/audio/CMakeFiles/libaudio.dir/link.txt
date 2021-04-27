@@ -1,0 +1,2 @@
+/Applications/Xcode10.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libaudio.a CMakeFiles/libaudio.dir/utility/audio_frame_operations.cc.o CMakeFiles/libaudio.dir/utility/channel_mixer.cc.o CMakeFiles/libaudio.dir/utility/channel_mixing_matrix.cc.o
+/Applications/Xcode10.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libaudio.a

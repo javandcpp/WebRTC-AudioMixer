@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="audio"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\api\;CMake Files\audio\;CMake Files\common_audio\;CMake Files\modules\;CMake Files\rtc_base\;CMake Files\system_wrappers\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libaudio">
+				<Option output="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/libaudio.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWEBRTC_MAC"/>
+					<Add option="-DWEBRTC_POSIX"/>
+					<Add option="-DWEBRTC_APM_DEBUG_DUMP=0"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/ksconfig.h"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 libaudio"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libaudio/fast">
+				<Option output="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/libaudio.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DWEBRTC_MAC"/>
+					<Add option="-DWEBRTC_POSIX"/>
+					<Add option="-DWEBRTC_APM_DEBUG_DUMP=0"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base"/>
+					<Add directory="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/ksconfig.h"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 libaudio/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/utility/audio_frame_operations.cc">
+			<Option target="libaudio"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/utility/audio_frame_operations.h">
+			<Option target="libaudio"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/utility/channel_mixer.cc">
+			<Option target="libaudio"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/utility/channel_mixer.h">
+			<Option target="libaudio"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/utility/channel_mixing_matrix.cc">
+			<Option target="libaudio"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/utility/channel_mixing_matrix.h">
+			<Option target="libaudio"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/api/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\api\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/audio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\audio\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/common_audio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\common_audio\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/modules/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\modules\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\rtc_base\"/>
+		</Unit>
+		<Unit filename="/Users/huaweichang/Downloads/webrtc/ios/webrtc/system_wrappers/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\system_wrappers\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

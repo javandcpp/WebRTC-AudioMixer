@@ -1,0 +1,5 @@
+/Applications/CMake.app/Contents/bin/cmake -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/huaweichang/Downloads/webrtc/ios/webrtc
+-->>/Users/huaweichang/Downloads/webrtc/ios/webrtc/api
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/huaweichang/Downloads/webrtc/ios/webrtc

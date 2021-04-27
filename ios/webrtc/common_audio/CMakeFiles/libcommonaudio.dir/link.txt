@@ -1,0 +1,2 @@
+/Applications/Xcode10.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libcommon_audio.a CMakeFiles/libcommonaudio.dir/audio_util.cc.o
+/Applications/Xcode10.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libcommon_audio.a

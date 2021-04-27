@@ -1,0 +1,2 @@
+/Applications/Xcode10.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libsys_wrappers.a CMakeFiles/libsyswrappters.dir/source/field_trial.cc.o CMakeFiles/libsyswrappters.dir/source/metrics.cc.o
+/Applications/Xcode10.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libsys_wrappers.a

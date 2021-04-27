@@ -1,0 +1,7 @@
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/modules/CMakeFiles/install/local.dir
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/modules/CMakeFiles/install/strip.dir
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/modules/CMakeFiles/install.dir
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/modules/CMakeFiles/list_install_components.dir
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/modules/CMakeFiles/rebuild_cache.dir
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/modules/CMakeFiles/edit_cache.dir
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/modules/CMakeFiles/libmodules.dir
