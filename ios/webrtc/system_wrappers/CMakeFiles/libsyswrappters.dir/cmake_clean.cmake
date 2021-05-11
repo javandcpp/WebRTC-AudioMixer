@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/libsyswrappters.dir/source/field_trial.cc.o"
+  "CMakeFiles/libsyswrappters.dir/source/field_trial.cc.o.d"
   "CMakeFiles/libsyswrappters.dir/source/metrics.cc.o"
+  "CMakeFiles/libsyswrappters.dir/source/metrics.cc.o.d"
   "libsys_wrappers.a"
   "libsys_wrappers.pdb"
 )

@@ -1,0 +1,6 @@
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/build/libapi.a
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/build/libaudio.a
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/build/libcommon_audio.a
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/build/libmodules.a
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/build/librtcbase.a
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/build/libsys_wrappers.a

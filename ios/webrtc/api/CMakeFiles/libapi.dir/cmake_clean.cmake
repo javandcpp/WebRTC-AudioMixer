@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/libapi.dir/audio/audio_frame.cc.o"
+  "CMakeFiles/libapi.dir/audio/audio_frame.cc.o.d"
   "libapi.a"
   "libapi.pdb"
 )

@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Applications/Xcode10.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/Applications/Xcode8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -49,7 +49,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 file(INSTALL DESTINATION "/Users/huaweichang/Downloads/webrtc/ios/webrtc/build" TYPE STATIC_LIBRARY FILES "/Users/huaweichang/Downloads/webrtc/ios/webrtc/system_wrappers/libsys_wrappers.a")
   if(EXISTS "$ENV{DESTDIR}/Users/huaweichang/Downloads/webrtc/ios/webrtc/build/libsys_wrappers.a" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/Users/huaweichang/Downloads/webrtc/ios/webrtc/build/libsys_wrappers.a")
-    execute_process(COMMAND "/Applications/Xcode10.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib" "$ENV{DESTDIR}/Users/huaweichang/Downloads/webrtc/ios/webrtc/build/libsys_wrappers.a")
+    execute_process(COMMAND "/Applications/Xcode8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib" "$ENV{DESTDIR}/Users/huaweichang/Downloads/webrtc/ios/webrtc/build/libsys_wrappers.a")
   endif()
 endif()
 

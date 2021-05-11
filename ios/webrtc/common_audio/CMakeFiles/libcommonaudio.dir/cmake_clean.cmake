@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/libcommonaudio.dir/audio_util.cc.o"
+  "CMakeFiles/libcommonaudio.dir/audio_util.cc.o.d"
   "libcommon_audio.a"
   "libcommon_audio.pdb"
 )
