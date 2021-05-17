@@ -11,8 +11,12 @@ include_directories(${PROJECT_SOURCE_DIR}/rtc_base)
 include_directories(${PROJECT_SOURCE_DIR}/system_wrappers)
 
 file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/*.cc)
+file(GLOB HEADER_FILES ${PROJECT_SOURCE_DIR}/include/*.h)
+
 add_library(libcommonaudio ${SRC_FILES})
 set_target_properties(libcommonaudio PROPERTIES OUTPUT_NAME "common_audio")
 install(TARGETS libcommonaudio
         DESTINATION ${CMAKE_INSTALL_PREFIX}
         )
+
+install(FILES ${HEADER_FILES} DESTINATION include/common_audio/include)

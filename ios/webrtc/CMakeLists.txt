@@ -1,12 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 
-set(CMAKE_CXX_STANDARD 14)
-add_definitions(-std=c++11)
-#add_definitions(-DWEBRTC_LINUX)
-add_definitions(-DWEBRTC_MAC -DWEBRTC_POSIX -DWEBRTC_APM_DEBUG_DUMP=0)
+set(CMAKE_CXX_STANDARD 14sudo)
 
-#add_definitions(-DWEBRTC_POSIX -DWEBRTC_APM_DEBUG_DUMP=0)
-#add_definitions(-D -fno-rtti)
+add_definitions(-std=c++11 -DWEBRTC_POSIX -DWEBRTC_IOS -DWEBRTC_ARCH_ARM -DWEBRTC_APM_DEBUG_DUMP=0 -DABSL_USES_STD_STRING_VIEW)
+
+
 
 project(webrtc)
 
@@ -21,4 +19,6 @@ add_subdirectory(common_audio)
 add_subdirectory(modules)
 add_subdirectory(rtc_base)
 add_subdirectory(system_wrappers)
+
+
 

@@ -6,5 +6,5 @@ CXX_DEFINES = -DWEBRTC_APM_DEBUG_DUMP=0 -DWEBRTC_MAC -DWEBRTC_POSIX
 
 CXX_INCLUDES = -I/Users/huaweichang/Downloads/webrtc/ios/webrtc -I/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base -I/Users/huaweichang/Downloads/webrtc/ios/webrtc/common_audio/ksconfig.h -I/Users/huaweichang/Downloads/webrtc/ios/webrtc/common_audio/absl -I/Users/huaweichang/Downloads/webrtc/ios/webrtc/common_audio/api -I/Users/huaweichang/Downloads/webrtc/ios/webrtc/common_audio/audio -I/Users/huaweichang/Downloads/webrtc/ios/webrtc/common_audio/common_audio -I/Users/huaweichang/Downloads/webrtc/ios/webrtc/common_audio/modules -I/Users/huaweichang/Downloads/webrtc/ios/webrtc/common_audio/rtc_base -I/Users/huaweichang/Downloads/webrtc/ios/webrtc/common_audio/system_wrappers
 
-CXX_FLAGS =   -std=c++11 -std=gnu++14
+CXX_FLAGS = -O3 -DNDEBUG   -std=c++11 -std=gnu++14
 
