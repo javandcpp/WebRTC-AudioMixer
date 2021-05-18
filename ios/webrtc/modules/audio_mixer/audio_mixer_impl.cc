@@ -89,7 +89,7 @@ bool ShouldMixBefore(const SourceFrame& a, const SourceFrame& b) {
 }
 
 void RampAndUpdateGain(
-    rtc::ArrayView<const SourceFrame> mixed_sources_and_frames) {
+    ksrtc::ArrayView<const SourceFrame> mixed_sources_and_frames) {
   for (const auto& source_frame : mixed_sources_and_frames) {
     float target_gain = source_frame.source_status->is_mixed ? 1.0f : 0.0f;
     Ramp(source_frame.source_status->gain, target_gain,
@@ -139,17 +139,17 @@ AudioMixerImpl::AudioMixerImpl(
 
 AudioMixerImpl::~AudioMixerImpl() {}
 
-rtc::scoped_refptr<AudioMixerImpl> AudioMixerImpl::Create() {
+ksrtc::scoped_refptr<AudioMixerImpl> AudioMixerImpl::Create() {
   return Create(std::unique_ptr<DefaultOutputRateCalculator>(
                     new DefaultOutputRateCalculator()),
                 true);
 }
 
-rtc::scoped_refptr<AudioMixerImpl> AudioMixerImpl::Create(
+ksrtc::scoped_refptr<AudioMixerImpl> AudioMixerImpl::Create(
     std::unique_ptr<OutputRateCalculator> output_rate_calculator,
     bool use_limiter) {
-  return rtc::scoped_refptr<AudioMixerImpl>(
-      new rtc::RefCountedObject<AudioMixerImpl>(
+  return ksrtc::scoped_refptr<AudioMixerImpl>(
+      new ksrtc::RefCountedObject<AudioMixerImpl>(
           std::move(output_rate_calculator), use_limiter));
 }
 
@@ -167,7 +167,7 @@ void AudioMixerImpl::Mix(size_t number_of_channels,
                  });
 
   int output_frequency = output_rate_calculator_->CalculateOutputRateFromRange(
-      rtc::ArrayView<const int>(helper_containers_->preferred_rates.data(),
+      ksrtc::ArrayView<const int>(helper_containers_->preferred_rates.data(),
                                 number_of_streams));
 
   frame_combiner_.Combine(GetAudioFromSources(output_frequency),
@@ -194,7 +194,7 @@ void AudioMixerImpl::RemoveSource(Source* audio_source) {
   audio_source_list_.erase(iter);
 }
 
-rtc::ArrayView<AudioFrame* const> AudioMixerImpl::GetAudioFromSources(
+ksrtc::ArrayView<AudioFrame* const> AudioMixerImpl::GetAudioFromSources(
     int output_frequency) {
   // Get audio from the audio sources and put it in the SourceFrame vector.
   int audio_source_mixing_data_count = 0;
@@ -212,7 +212,7 @@ rtc::ArrayView<AudioFrame* const> AudioMixerImpl::GetAudioFromSources(
         SourceFrame(source_and_status.get(), &source_and_status->audio_frame,
                     audio_frame_info == Source::AudioFrameInfo::kMuted);
   }
-  rtc::ArrayView<SourceFrame> audio_source_mixing_data_view(
+  ksrtc::ArrayView<SourceFrame> audio_source_mixing_data_view(
       helper_containers_->audio_source_mixing_data_list.data(),
       audio_source_mixing_data_count);
 
@@ -242,9 +242,9 @@ rtc::ArrayView<AudioFrame* const> AudioMixerImpl::GetAudioFromSources(
     }
     p.source_status->is_mixed = is_mixed;
   }
-  RampAndUpdateGain(rtc::ArrayView<SourceFrame>(
+  RampAndUpdateGain(ksrtc::ArrayView<SourceFrame>(
       helper_containers_->ramp_list.data(), ramp_list_lengh));
-  return rtc::ArrayView<AudioFrame* const>(
+  return ksrtc::ArrayView<AudioFrame* const>(
       helper_containers_->audio_to_mix.data(), audio_to_mix_count);
 }
 

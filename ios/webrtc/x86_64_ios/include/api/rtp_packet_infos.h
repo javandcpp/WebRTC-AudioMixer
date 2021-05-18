@@ -80,9 +80,9 @@ class RTC_EXPORT RtpPacketInfos {
   size_type size() const { return entries().size(); }
 
  private:
-  class Data : public rtc::RefCountedBase {
+  class Data : public ksrtc::RefCountedBase {
    public:
-    static rtc::scoped_refptr<Data> Create(const vector_type& entries) {
+    static ksrtc::scoped_refptr<Data> Create(const vector_type& entries) {
       // Performance optimization for the empty case.
       if (entries.empty()) {
         return nullptr;
@@ -91,7 +91,7 @@ class RTC_EXPORT RtpPacketInfos {
       return new Data(entries);
     }
 
-    static rtc::scoped_refptr<Data> Create(vector_type&& entries) {
+    static ksrtc::scoped_refptr<Data> Create(vector_type&& entries) {
       // Performance optimization for the empty case.
       if (entries.empty()) {
         return nullptr;
@@ -123,7 +123,7 @@ class RTC_EXPORT RtpPacketInfos {
     }
   }
 
-  rtc::scoped_refptr<Data> data_;
+  ksrtc::scoped_refptr<Data> data_;
 };
 
 }  // namespace WEBRTC_NAMESAPCE

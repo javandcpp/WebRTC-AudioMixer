@@ -11,8 +11,8 @@
 // Minimum and maximum
 // ===================
 //
-//   rtc::SafeMin(x, y)
-//   rtc::SafeMax(x, y)
+//   ksrtc::SafeMin(x, y)
+//   ksrtc::SafeMax(x, y)
 //
 // (These are both constexpr.)
 //
@@ -30,7 +30,7 @@
 // Clamp (a.k.a. constrain to a given interval)
 // ============================================
 //
-//   rtc::SafeClamp(x, a, b)
+//   ksrtc::SafeClamp(x, a, b)
 //
 // Accepts three arguments of any mix of integral types or any mix of
 // floating-point types, and returns the value in the closed interval [a, b]
@@ -67,7 +67,7 @@
 // All three functions allow callers to explicitly specify the return type as a
 // template parameter, overriding the default return type. E.g.
 //
-//   rtc::SafeMin<int>(x, y)  // returns an int
+//   ksrtc::SafeMin<int>(x, y)  // returns an int
 //
 // If the requested type is statically guaranteed to be able to represent the
 // result, then everything's fine, and the return type is as requested. But if
@@ -83,7 +83,7 @@
 #include "rtc_base/numerics/safe_compare.h"
 #include "rtc_base/type_traits.h"
 
-namespace rtc {
+namespace ksrtc {
 
 namespace safe_minmax_impl {
 

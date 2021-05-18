@@ -17,7 +17,7 @@
 
 #include "rtc_base/checks.h"
 
-namespace rtc {
+namespace ksrtc {
 namespace string_to_number_internal {
 
 absl::optional<signed_type> ParseSigned(const char* str, int base) {

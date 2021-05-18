@@ -98,7 +98,7 @@ RTC_NORETURN void rtc_FatalMessage(const char* file, int line, const char* msg);
 //
 // - RTC_FATAL() aborts unconditionally.
 
-namespace rtc {
+namespace ksrtc {
 namespace kswebrtc_checks_impl {
 
 enum class CheckArgType : int8_t {
@@ -366,14 +366,14 @@ RTC_NORETURN RTC_EXPORT void UnreachableCodeReached();
 #define RTC_EAT_STREAM_PARAMETERS(ignored)                          \
   (true ? true : ((void)(ignored), true))                           \
       ? static_cast<void>(0)                                        \
-      : ::rtc::kswebrtc_checks_impl::FatalLogCall<false>("", 0, "") & \
-            ::rtc::kswebrtc_checks_impl::LogStreamer<>()
+      : ::ksrtc::kswebrtc_checks_impl::FatalLogCall<false>("", 0, "") & \
+            ::ksrtc::kswebrtc_checks_impl::LogStreamer<>()
 
 // Call RTC_EAT_STREAM_PARAMETERS with an argument that fails to compile if
 // values of the same types as |a| and |b| can't be compared with the given
 // operation, and that would evaluate |a| and |b| if evaluated.
 #define RTC_EAT_STREAM_PARAMETERS_OP(op, a, b) \
-  RTC_EAT_STREAM_PARAMETERS(((void)::rtc::Safe##op(a, b)))
+  RTC_EAT_STREAM_PARAMETERS(((void)::ksrtc::Safe##op(a, b)))
 
 // RTC_CHECK dies with a fatal error if condition is not true. It is *not*
 // controlled by NDEBUG or anything else, so the check will be executed
@@ -387,34 +387,34 @@ RTC_NORETURN RTC_EXPORT void UnreachableCodeReached();
 #if RTC_CHECK_MSG_ENABLED
 #define RTC_CHECK(condition)                                    \
   (condition) ? static_cast<void>(0)                            \
-              : ::rtc::kswebrtc_checks_impl::FatalLogCall<false>( \
+              : ::ksrtc::kswebrtc_checks_impl::FatalLogCall<false>( \
                     __FILE__, __LINE__, #condition) &           \
-                    ::rtc::kswebrtc_checks_impl::LogStreamer<>()
+                    ::ksrtc::kswebrtc_checks_impl::LogStreamer<>()
 
 #define RTC_CHECK_OP(name, op, val1, val2)                 \
-  ::rtc::Safe##name((val1), (val2))                        \
+  ::ksrtc::Safe##name((val1), (val2))                        \
       ? static_cast<void>(0)                               \
-      : ::rtc::kswebrtc_checks_impl::FatalLogCall<true>(     \
+      : ::ksrtc::kswebrtc_checks_impl::FatalLogCall<true>(     \
             __FILE__, __LINE__, #val1 " " #op " " #val2) & \
-            ::rtc::kswebrtc_checks_impl::LogStreamer<>() << (val1) << (val2)
+            ::ksrtc::kswebrtc_checks_impl::LogStreamer<>() << (val1) << (val2)
 #else
 #define RTC_CHECK(condition)                                                  \
   (condition)                                                                 \
       ? static_cast<void>(0)                                                  \
-      : true ? ::rtc::kswebrtc_checks_impl::FatalLogCall<false>(__FILE__,       \
+      : true ? ::ksrtc::kswebrtc_checks_impl::FatalLogCall<false>(__FILE__,       \
                                                               __LINE__, "") & \
-                   ::rtc::kswebrtc_checks_impl::LogStreamer<>()                 \
-             : ::rtc::kswebrtc_checks_impl::FatalLogCall<false>("", 0, "") &    \
-                   ::rtc::kswebrtc_checks_impl::LogStreamer<>()
+                   ::ksrtc::kswebrtc_checks_impl::LogStreamer<>()                 \
+             : ::ksrtc::kswebrtc_checks_impl::FatalLogCall<false>("", 0, "") &    \
+                   ::ksrtc::kswebrtc_checks_impl::LogStreamer<>()
 
 #define RTC_CHECK_OP(name, op, val1, val2)                                   \
-  ::rtc::Safe##name((val1), (val2))                                          \
+  ::ksrtc::Safe##name((val1), (val2))                                          \
       ? static_cast<void>(0)                                                 \
-      : true ? ::rtc::kswebrtc_checks_impl::FatalLogCall<true>(__FILE__,       \
+      : true ? ::ksrtc::kswebrtc_checks_impl::FatalLogCall<true>(__FILE__,       \
                                                              __LINE__, "") & \
-                   ::rtc::kswebrtc_checks_impl::LogStreamer<>()                \
-             : ::rtc::kswebrtc_checks_impl::FatalLogCall<false>("", 0, "") &   \
-                   ::rtc::kswebrtc_checks_impl::LogStreamer<>()
+                   ::ksrtc::kswebrtc_checks_impl::LogStreamer<>()                \
+             : ::ksrtc::kswebrtc_checks_impl::FatalLogCall<false>("", 0, "") &   \
+                   ::ksrtc::kswebrtc_checks_impl::LogStreamer<>()
 #endif
 
 #define RTC_CHECK_EQ(val1, val2) RTC_CHECK_OP(Eq, ==, val1, val2)
@@ -452,14 +452,14 @@ RTC_NORETURN RTC_EXPORT void UnreachableCodeReached();
 // assert that a point in the code is never reached.
 #define RTC_CHECK_NOTREACHED()                         \
   do {                                                 \
-    ::rtc::kswebrtc_checks_impl::UnreachableCodeReached( \
+    ::ksrtc::kswebrtc_checks_impl::UnreachableCodeReached( \
         RTC_UNREACHABLE_FILE_AND_LINE_CALL_ARGS);      \
   } while (0)
 
 #define RTC_FATAL()                                                  \
-  ::rtc::kswebrtc_checks_impl::FatalLogCall<false>(__FILE__, __LINE__, \
+  ::ksrtc::kswebrtc_checks_impl::FatalLogCall<false>(__FILE__, __LINE__, \
                                                  "FATAL()") &        \
-      ::rtc::kswebrtc_checks_impl::LogStreamer<>()
+      ::ksrtc::kswebrtc_checks_impl::LogStreamer<>()
 
 // Performs the integer division a/b and returns the result. CHECKs that the
 // remainder is zero.

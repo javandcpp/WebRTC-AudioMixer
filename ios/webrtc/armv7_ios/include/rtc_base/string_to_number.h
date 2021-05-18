@@ -17,7 +17,7 @@
 
 #include "absl/types/optional.h"
 
-namespace rtc {
+namespace ksrtc {
 
 // This file declares a family of functions to parse integers from strings.
 // The standard C library functions either fail to indicate errors (atoi, etc.)

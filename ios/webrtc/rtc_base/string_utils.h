@@ -30,7 +30,7 @@
 
 #include <string>
 
-namespace rtc {
+namespace ksrtc {
 
 const size_t SIZE_UNKNOWN = static_cast<size_t>(-1);
 

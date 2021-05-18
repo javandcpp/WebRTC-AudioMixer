@@ -27,7 +27,7 @@ namespace WEBRTC_NAMESAPCE {
 // The epoch is assumed to be before any represented timestamps, this means that
 // negative values are not valid. The most notable feature is that the
 // difference of two Timestamps results in a TimeDelta.
-class Timestamp final : public rtc_units_impl::UnitBase<Timestamp> {
+class Timestamp final : public ksrtc_units_impl::UnitBase<Timestamp> {
  public:
   template <typename T>
   static constexpr Timestamp Seconds(T value) {
@@ -116,7 +116,7 @@ class Timestamp final : public rtc_units_impl::UnitBase<Timestamp> {
   }
 
  private:
-  friend class rtc_units_impl::UnitBase<Timestamp>;
+  friend class ksrtc_units_impl::UnitBase<Timestamp>;
   using UnitBase::UnitBase;
   static constexpr bool one_sided = true;
 };

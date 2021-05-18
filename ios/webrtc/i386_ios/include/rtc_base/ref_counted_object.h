@@ -17,7 +17,7 @@
 #include "rtc_base/ref_count.h"
 #include "rtc_base/ref_counter.h"
 
-namespace rtc {
+namespace ksrtc {
 
 template <class T>
 class RefCountedObject : public T {

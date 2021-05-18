@@ -18,7 +18,7 @@
 #include "rtc_base/checks.h"
 #include "rtc_base/numerics/safe_conversions_impl.h"
 
-namespace rtc {
+namespace ksrtc {
 
 // Convenience function that returns true if the supplied value is in range
 // for the destination type.

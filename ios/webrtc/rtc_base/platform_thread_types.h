@@ -31,7 +31,7 @@
 #endif
 // clang-format on
 
-namespace rtc {
+namespace ksrtc {
 #if defined(WEBRTC_WIN)
 typedef DWORD PlatformThreadId;
 typedef DWORD PlatformThreadRef;

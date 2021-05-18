@@ -15,7 +15,7 @@
 #include "rtc_base/platform_thread_types.h"
 #include "rtc_base/thread_annotations.h"
 
-namespace rtc {
+namespace ksrtc {
 
 namespace internal {
 class RaceCheckerScope;
@@ -63,16 +63,16 @@ class RTC_SCOPED_LOCKABLE RaceCheckerScopeDoNothing {
 }  // namespace rtc
 
 #define RTC_CHECK_RUNS_SERIALIZED(x)               \
-  rtc::internal::RaceCheckerScope race_checker(x); \
+  ksrtc::internal::RaceCheckerScope race_checker(x); \
   RTC_CHECK(!race_checker.RaceDetected())
 
 #if RTC_DCHECK_IS_ON
 #define RTC_DCHECK_RUNS_SERIALIZED(x)              \
-  rtc::internal::RaceCheckerScope race_checker(x); \
+  ksrtc::internal::RaceCheckerScope race_checker(x); \
   RTC_DCHECK(!race_checker.RaceDetected())
 #else
 #define RTC_DCHECK_RUNS_SERIALIZED(x) \
-  rtc::internal::RaceCheckerScopeDoNothing race_checker(x)
+  ksrtc::internal::RaceCheckerScopeDoNothing race_checker(x)
 #endif
 
 #endif  // RTC_BASE_RACE_CHECKER_H_

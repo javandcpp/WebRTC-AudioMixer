@@ -71,7 +71,7 @@ void AppendFormat(std::string* s, const char* fmt, ...) {
 }
 }  // namespace
 
-namespace rtc {
+namespace ksrtc {
 namespace kswebrtc_checks_impl {
 
 #if RTC_CHECK_MSG_ENABLED
@@ -219,10 +219,10 @@ RTC_NORETURN void rtc_FatalMessage(const char* file,
                                    int line,
                                    const char* msg) {
 #if RTC_CHECK_MSG_ENABLED
-  static constexpr rtc::kswebrtc_checks_impl::CheckArgType t[] = {
-      rtc::kswebrtc_checks_impl::CheckArgType::kEnd};
-  rtc::kswebrtc_checks_impl::FatalLog(file, line, msg, t);
+  static constexpr ksrtc::kswebrtc_checks_impl::CheckArgType t[] = {
+      ksrtc::kswebrtc_checks_impl::CheckArgType::kEnd};
+  ksrtc::kswebrtc_checks_impl::FatalLog(file, line, msg, t);
 #else
-  rtc::kswebrtc_checks_impl::FatalLog(file, line);
+  ksrtc::kswebrtc_checks_impl::FatalLog(file, line);
 #endif
 }

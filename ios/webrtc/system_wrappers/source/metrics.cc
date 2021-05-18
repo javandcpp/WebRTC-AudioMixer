@@ -190,10 +190,10 @@ class RtcHistogramMap {
 static RtcHistogramMap* volatile g_rtc_histogram_map = nullptr;
 
 void CreateMap() {
-  RtcHistogramMap* map = rtc::AtomicOps::AcquireLoadPtr(&g_rtc_histogram_map);
+  RtcHistogramMap* map = ksrtc::AtomicOps::AcquireLoadPtr(&g_rtc_histogram_map);
   if (map == nullptr) {
     RtcHistogramMap* new_map = new RtcHistogramMap();
-    RtcHistogramMap* old_map = rtc::AtomicOps::CompareAndSwapPtr(
+    RtcHistogramMap* old_map = ksrtc::AtomicOps::CompareAndSwapPtr(
         &g_rtc_histogram_map, static_cast<RtcHistogramMap*>(nullptr), new_map);
     if (old_map != nullptr)
       delete new_map;
@@ -209,7 +209,7 @@ static volatile int g_rtc_histogram_called = 0;
 // Gets the map (or nullptr).
 RtcHistogramMap* GetMap() {
 #if RTC_DCHECK_IS_ON
-  rtc::AtomicOps::ReleaseStore(&g_rtc_histogram_called, 1);
+  ksrtc::AtomicOps::ReleaseStore(&g_rtc_histogram_called, 1);
 #endif
   return g_rtc_histogram_map;
 }
@@ -286,7 +286,7 @@ SampleInfo::~SampleInfo() {}
 void Enable() {
   RTC_DCHECK(g_rtc_histogram_map == nullptr);
 #if RTC_DCHECK_IS_ON
-  RTC_DCHECK_EQ(0, rtc::AtomicOps::AcquireLoad(&g_rtc_histogram_called));
+  RTC_DCHECK_EQ(0, ksrtc::AtomicOps::AcquireLoad(&g_rtc_histogram_called));
 #endif
   CreateMap();
 }

@@ -81,12 +81,12 @@ FileWrapper& FileWrapper::operator=(FileWrapper&& other) {
 
 bool FileWrapper::SeekRelative(int64_t offset) {
   RTC_DCHECK(file_);
-  return fseek(file_, rtc::checked_cast<long>(offset), SEEK_CUR) == 0;
+  return fseek(file_, ksrtc::checked_cast<long>(offset), SEEK_CUR) == 0;
 }
 
 bool FileWrapper::SeekTo(int64_t position) {
   RTC_DCHECK(file_);
-  return fseek(file_, rtc::checked_cast<long>(position), SEEK_SET) == 0;
+  return fseek(file_, ksrtc::checked_cast<long>(position), SEEK_SET) == 0;
 }
 
 bool FileWrapper::Flush() {

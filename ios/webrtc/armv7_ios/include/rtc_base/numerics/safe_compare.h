@@ -10,12 +10,12 @@
 
 // This file defines six constexpr functions:
 //
-//   rtc::SafeEq  // ==
-//   rtc::SafeNe  // !=
-//   rtc::SafeLt  // <
-//   rtc::SafeLe  // <=
-//   rtc::SafeGt  // >
-//   rtc::SafeGe  // >=
+//   ksrtc::SafeEq  // ==
+//   ksrtc::SafeNe  // !=
+//   ksrtc::SafeLt  // <
+//   ksrtc::SafeLe  // <=
+//   ksrtc::SafeGt  // >
+//   ksrtc::SafeGe  // >=
 //
 // They each accept two arguments of arbitrary types, and in almost all cases,
 // they simply call the appropriate comparison operator. However, if both
@@ -39,7 +39,7 @@
 
 #include "rtc_base/type_traits.h"
 
-namespace rtc {
+namespace ksrtc {
 
 namespace safe_cmp_impl {
 

@@ -98,10 +98,10 @@ std::array<float, kSubFramesInFrame> FixedDigitalLevelEstimator::ComputeLevel(
 }
 
 void FixedDigitalLevelEstimator::SetSampleRate(size_t sample_rate_hz) {
-  samples_in_frame_ = rtc::CheckedDivExact(sample_rate_hz * kFrameDurationMs,
+  samples_in_frame_ = ksrtc::CheckedDivExact(sample_rate_hz * kFrameDurationMs,
                                            static_cast<size_t>(1000));
   samples_in_sub_frame_ =
-      rtc::CheckedDivExact(samples_in_frame_, kSubFramesInFrame);
+      ksrtc::CheckedDivExact(samples_in_frame_, kSubFramesInFrame);
   CheckParameterCombination();
 }
 

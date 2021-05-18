@@ -35,7 +35,7 @@ std::string FormFileName(const char* output_dir,
                          int reinit_index,
                          const std::string& suffix) {
   char buf[1024];
-  rtc::SimpleStringBuilder ss(buf);
+  ksrtc::SimpleStringBuilder ss(buf);
   const size_t output_dir_size = strlen(output_dir);
   if (output_dir_size > 0) {
     ss << output_dir;

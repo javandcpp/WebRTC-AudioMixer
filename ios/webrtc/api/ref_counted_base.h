@@ -15,7 +15,7 @@
 #include "rtc_base/ref_counter.h"
 #include "ksconfig.h"
 
-namespace rtc {
+namespace ksrtc {
 
 class RefCountedBase {
  public:

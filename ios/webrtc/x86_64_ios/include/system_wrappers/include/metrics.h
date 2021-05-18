@@ -195,11 +195,11 @@ void NoOp(const Ts&...) {}
   do {                                                                     \
     static WEBRTC_NAMESAPCE::metrics::Histogram* atomic_histogram_pointer = nullptr; \
     WEBRTC_NAMESAPCE::metrics::Histogram* histogram_pointer =                        \
-        rtc::AtomicOps::AcquireLoadPtr(&atomic_histogram_pointer);         \
+        ksrtc::AtomicOps::AcquireLoadPtr(&atomic_histogram_pointer);         \
     if (!histogram_pointer) {                                              \
       histogram_pointer = factory_get_invocation;                          \
       WEBRTC_NAMESAPCE::metrics::Histogram* prev_pointer =                           \
-          rtc::AtomicOps::CompareAndSwapPtr(                               \
+          ksrtc::AtomicOps::CompareAndSwapPtr(                               \
               &atomic_histogram_pointer,                                   \
               static_cast<WEBRTC_NAMESAPCE::metrics::Histogram*>(nullptr),           \
               histogram_pointer);                                          \

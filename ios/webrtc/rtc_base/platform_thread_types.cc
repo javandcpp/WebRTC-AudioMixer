@@ -25,7 +25,7 @@ typedef HRESULT(WINAPI* RTC_SetThreadDescription)(HANDLE hThread,
                                                   PCWSTR lpThreadDescription);
 #endif
 
-namespace rtc {
+namespace ksrtc {
 
 PlatformThreadId CurrentThreadId() {
 #if defined(WEBRTC_WIN)

@@ -51,7 +51,7 @@ static const int kMaxLogLineSize = 1024 - 60;
 #include "rtc_base/thread_annotations.h"
 #include "rtc_base/time_utils.h"
 
-namespace rtc {
+namespace ksrtc {
 namespace {
 // By default, release builds don't log, debug builds at info level
 #if !defined(NDEBUG)
@@ -219,7 +219,7 @@ void LogMessage::AddTag(const char* tag) {
 #endif
 }
 
-rtc::StringBuilder& LogMessage::stream() {
+ksrtc::StringBuilder& LogMessage::stream() {
   return print_stream_;
 }
 
@@ -530,7 +530,7 @@ void Log(const LogArgType* fmt, ...) {
         log_message.stream() << *va_arg(args, const absl::string_view*);
         break;
       case LogArgType::kVoidP:
-        log_message.stream() << rtc::ToHex(
+        log_message.stream() << ksrtc::ToHex(
             reinterpret_cast<uintptr_t>(va_arg(args, const void*)));
         break;
       default:
@@ -547,7 +547,7 @@ void Log(const LogArgType* fmt, ...) {
 }  // namespace rtc
 #endif
 
-namespace rtc {
+namespace ksrtc {
 // Inefficient default implementation, override is recommended.
 void LogSink::OnLogMessage(const std::string& msg,
                            LoggingSeverity severity,

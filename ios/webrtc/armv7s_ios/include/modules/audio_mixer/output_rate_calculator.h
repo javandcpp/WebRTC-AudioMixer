@@ -22,7 +22,7 @@ namespace WEBRTC_NAMESAPCE {
 class OutputRateCalculator {
  public:
   virtual int CalculateOutputRateFromRange(
-      rtc::ArrayView<const int> preferred_sample_rates) = 0;
+      ksrtc::ArrayView<const int> preferred_sample_rates) = 0;
 
   virtual ~OutputRateCalculator() {}
 };

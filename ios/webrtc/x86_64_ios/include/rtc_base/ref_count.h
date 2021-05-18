@@ -10,7 +10,7 @@
 #ifndef RTC_BASE_REF_COUNT_H_
 #define RTC_BASE_REF_COUNT_H_
 
-namespace rtc {
+namespace ksrtc {
 
 // Refcounted objects should implement the following informal interface:
 //
@@ -22,7 +22,7 @@ namespace rtc {
 // you're borrowing someone else's reference. (A newly created object is a
 // special case: the reference count is zero on construction, and the code that
 // creates the object should immediately call AddRef(), bringing the reference
-// count from zero to one, e.g., by constructing an rtc::scoped_refptr).
+// count from zero to one, e.g., by constructing an ksrtc::scoped_refptr).
 //
 // AddRef() creates a new reference to the object.
 //
@@ -41,8 +41,8 @@ namespace rtc {
 // result of another thread calling Release().
 //
 // Calling AddRef() and Release() manually is discouraged. It's recommended to
-// use rtc::scoped_refptr to manage all pointers to reference counted objects.
-// Note that rtc::scoped_refptr depends on compile-time duck-typing; formally
+// use ksrtc::scoped_refptr to manage all pointers to reference counted objects.
+// Note that ksrtc::scoped_refptr depends on compile-time duck-typing; formally
 // implementing the below RefCountInterface is not required.
 
 enum class RefCountReleaseStatus { kDroppedLastRef, kOtherRefsRemained };

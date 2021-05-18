@@ -36,7 +36,7 @@ using MixingBuffer =
     std::array<std::array<float, FrameCombiner::kMaximumChannelSize>,
                FrameCombiner::kMaximumNumberOfChannels>;
 
-void SetAudioFrameFields(rtc::ArrayView<const AudioFrame* const> mix_list,
+void SetAudioFrameFields(ksrtc::ArrayView<const AudioFrame* const> mix_list,
                          size_t number_of_channels,
                          int sample_rate,
                          size_t number_of_streams,
@@ -62,7 +62,7 @@ void SetAudioFrameFields(rtc::ArrayView<const AudioFrame* const> mix_list,
   }
 }
 
-void MixFewFramesWithNoLimiter(rtc::ArrayView<const AudioFrame* const> mix_list,
+void MixFewFramesWithNoLimiter(ksrtc::ArrayView<const AudioFrame* const> mix_list,
                                AudioFrame* audio_frame_for_mixing) {
   if (mix_list.empty()) {
     audio_frame_for_mixing->Mute();
@@ -75,7 +75,7 @@ void MixFewFramesWithNoLimiter(rtc::ArrayView<const AudioFrame* const> mix_list,
             audio_frame_for_mixing->mutable_data());
 }
 
-void MixToFloatFrame(rtc::ArrayView<const AudioFrame* const> mix_list,
+void MixToFloatFrame(ksrtc::ArrayView<const AudioFrame* const> mix_list,
                      size_t samples_per_channel,
                      size_t number_of_channels,
                      MixingBuffer* mixing_buffer) {
@@ -141,7 +141,7 @@ FrameCombiner::FrameCombiner(bool use_limiter)
 
 FrameCombiner::~FrameCombiner() = default;
 
-void FrameCombiner::Combine(rtc::ArrayView<AudioFrame* const> mix_list,
+void FrameCombiner::Combine(ksrtc::ArrayView<AudioFrame* const> mix_list,
                             size_t number_of_channels,
                             int sample_rate,
                             size_t number_of_streams,
@@ -197,7 +197,7 @@ void FrameCombiner::Combine(rtc::ArrayView<AudioFrame* const> mix_list,
 }
 
 void FrameCombiner::LogMixingStats(
-    rtc::ArrayView<const AudioFrame* const> mix_list,
+    ksrtc::ArrayView<const AudioFrame* const> mix_list,
     int sample_rate,
     size_t number_of_streams) const {
   // Log every second.

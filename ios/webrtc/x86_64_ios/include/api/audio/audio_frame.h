@@ -168,7 +168,7 @@ class AudioFrame {
   // Absolute capture timestamp when this audio frame was originally captured.
   // This is only valid for audio frames captured on this machine. The absolute
   // capture timestamp of a received frame is found in |packet_infos_|.
-  // This timestamp MUST be based on the same clock as rtc::TimeMillis().
+  // This timestamp MUST be based on the same clock as ksrtc::TimeMillis().
   absl::optional<int64_t> absolute_capture_timestamp_ms_;
 
   RTC_DISALLOW_COPY_AND_ASSIGN(AudioFrame);

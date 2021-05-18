@@ -23,7 +23,7 @@
 // clang-format on
 #endif  // defined(WEBRTC_WIN)
 
-namespace rtc {
+namespace ksrtc {
 class AtomicOps {
  public:
 #if defined(WEBRTC_WIN)

@@ -19,7 +19,7 @@
 #include "api/array_view.h"
 #include "rtc_base/string_encode.h"
 
-namespace rtc {
+namespace ksrtc {
 
 // This is a minimalistic string builder class meant to cover the most cases of
 // when you might otherwise be tempted to use a stringstream (discouraged for
@@ -28,7 +28,7 @@ namespace rtc {
 // read via |str()|.
 class SimpleStringBuilder {
  public:
-  explicit SimpleStringBuilder(rtc::ArrayView<char> buffer);
+  explicit SimpleStringBuilder(ksrtc::ArrayView<char> buffer);
   SimpleStringBuilder(const SimpleStringBuilder&) = delete;
   SimpleStringBuilder& operator=(const SimpleStringBuilder&) = delete;
 
@@ -74,7 +74,7 @@ class SimpleStringBuilder {
   // size allows the buffer to be stack allocated, which helps performance.
   // Having a fixed size is furthermore useful to avoid unnecessary resizing
   // while building it.
-  const rtc::ArrayView<char> buffer_;
+  const ksrtc::ArrayView<char> buffer_;
 
   // Represents the number of characters written to the buffer.
   // This does not include the terminating '\0'.
@@ -103,47 +103,47 @@ class StringBuilder {
   StringBuilder& operator<<(char c) = delete;
 
   StringBuilder& operator<<(int i) {
-    str_ += rtc::ToString(i);
+    str_ += ksrtc::ToString(i);
     return *this;
   }
 
   StringBuilder& operator<<(unsigned i) {
-    str_ += rtc::ToString(i);
+    str_ += ksrtc::ToString(i);
     return *this;
   }
 
   StringBuilder& operator<<(long i) {  // NOLINT
-    str_ += rtc::ToString(i);
+    str_ += ksrtc::ToString(i);
     return *this;
   }
 
   StringBuilder& operator<<(long long i) {  // NOLINT
-    str_ += rtc::ToString(i);
+    str_ += ksrtc::ToString(i);
     return *this;
   }
 
   StringBuilder& operator<<(unsigned long i) {  // NOLINT
-    str_ += rtc::ToString(i);
+    str_ += ksrtc::ToString(i);
     return *this;
   }
 
   StringBuilder& operator<<(unsigned long long i) {  // NOLINT
-    str_ += rtc::ToString(i);
+    str_ += ksrtc::ToString(i);
     return *this;
   }
 
   StringBuilder& operator<<(float f) {
-    str_ += rtc::ToString(f);
+    str_ += ksrtc::ToString(f);
     return *this;
   }
 
   StringBuilder& operator<<(double f) {
-    str_ += rtc::ToString(f);
+    str_ += ksrtc::ToString(f);
     return *this;
   }
 
   StringBuilder& operator<<(long double f) {
-    str_ += rtc::ToString(f);
+    str_ += ksrtc::ToString(f);
     return *this;
   }
 

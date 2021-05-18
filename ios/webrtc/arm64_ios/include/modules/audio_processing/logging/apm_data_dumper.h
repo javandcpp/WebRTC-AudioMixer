@@ -124,7 +124,7 @@ class ApmDataDumper {
   }
 
   void DumpRaw(const char* name,
-               rtc::ArrayView<const double> v,
+               ksrtc::ArrayView<const double> v,
                int dump_set = kDefaultDumpSet) {
 #if WEBRTC_APM_DEBUG_DUMP == 1
     if (dump_set_to_use_ && *dump_set_to_use_ != dump_set)
@@ -164,7 +164,7 @@ class ApmDataDumper {
   }
 
   void DumpRaw(const char* name,
-               rtc::ArrayView<const float> v,
+               ksrtc::ArrayView<const float> v,
                int dump_set = kDefaultDumpSet) {
 #if WEBRTC_APM_DEBUG_DUMP == 1
     if (dump_set_to_use_ && *dump_set_to_use_ != dump_set)
@@ -206,7 +206,7 @@ class ApmDataDumper {
   }
 
   void DumpRaw(const char* name,
-               rtc::ArrayView<const bool> v,
+               ksrtc::ArrayView<const bool> v,
                int dump_set = kDefaultDumpSet) {
 #if WEBRTC_APM_DEBUG_DUMP == 1
     if (dump_set_to_use_ && *dump_set_to_use_ != dump_set)
@@ -246,7 +246,7 @@ class ApmDataDumper {
   }
 
   void DumpRaw(const char* name,
-               rtc::ArrayView<const int16_t> v,
+               ksrtc::ArrayView<const int16_t> v,
                int dump_set = kDefaultDumpSet) {
 #if WEBRTC_APM_DEBUG_DUMP == 1
     if (dump_set_to_use_ && *dump_set_to_use_ != dump_set)
@@ -313,7 +313,7 @@ class ApmDataDumper {
   }
 
   void DumpRaw(const char* name,
-               rtc::ArrayView<const int32_t> v,
+               ksrtc::ArrayView<const int32_t> v,
                int dump_set = kDefaultDumpSet) {
 #if WEBRTC_APM_DEBUG_DUMP == 1
     if (dump_set_to_use_ && *dump_set_to_use_ != dump_set)
@@ -326,7 +326,7 @@ class ApmDataDumper {
   }
 
   void DumpRaw(const char* name,
-               rtc::ArrayView<const size_t> v,
+               ksrtc::ArrayView<const size_t> v,
                int dump_set = kDefaultDumpSet) {
 #if WEBRTC_APM_DEBUG_DUMP == 1
     if (dump_set_to_use_ && *dump_set_to_use_ != dump_set)
@@ -355,7 +355,7 @@ class ApmDataDumper {
   }
 
   void DumpWav(const char* name,
-               rtc::ArrayView<const float> v,
+               ksrtc::ArrayView<const float> v,
                int sample_rate_hz,
                int num_channels,
                int dump_set = kDefaultDumpSet) {

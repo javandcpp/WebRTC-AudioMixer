@@ -80,7 +80,7 @@ void InsertOrReplaceFieldTrialStringsInMap(
     const absl::string_view trials_string) {
   if (FieldTrialsStringIsValidInternal(trials_string)) {
     std::vector<std::string> tokens;
-    rtc::split(std::string(trials_string), '/', &tokens);
+    ksrtc::split(std::string(trials_string), '/', &tokens);
     // Skip last token which is empty due to trailing '/'.
     for (size_t idx = 0; idx < tokens.size() - 1; idx += 2) {
       (*fieldtrial_map)[tokens[idx]] = tokens[idx + 1];

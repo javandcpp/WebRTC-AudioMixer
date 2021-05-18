@@ -15,7 +15,7 @@
 #include "rtc_base/arraysize.h"
 #include "rtc_base/checks.h"
 
-namespace rtc {
+namespace ksrtc {
 
 /////////////////////////////////////////////////////////////////////////////
 // String Encoding Utilities

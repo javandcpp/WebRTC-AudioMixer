@@ -37,7 +37,7 @@
 #include "rtc_base/system/rtc_export.h"
 #include "ksconfig.h"
 
-namespace rtc {
+namespace ksrtc {
 class TaskQueue;
 }  // namespace rtc
 
@@ -175,7 +175,7 @@ struct ExperimentalNs {
 // // Close the application...
 // delete apm;
 //
-class RTC_EXPORT AudioProcessing : public rtc::RefCountInterface {
+class RTC_EXPORT AudioProcessing : public ksrtc::RefCountInterface {
  public:
   // The struct below constitutes the new parameter scheme for the audio
   // processing. It is being introduced gradually and until it is fully
@@ -613,7 +613,7 @@ class RTC_EXPORT AudioProcessing : public rtc::RefCountInterface {
   // of the input is returned. Returns true/false to indicate whether an output
   // returned.
   virtual bool GetLinearAecOutput(
-      rtc::ArrayView<std::array<float, 160>> linear_output) const = 0;
+      ksrtc::ArrayView<std::array<float, 160>> linear_output) const = 0;
 
   // This must be called prior to ProcessStream() if and only if adaptive analog
   // gain control is enabled, to pass the current analog level from the audio
@@ -656,10 +656,10 @@ class RTC_EXPORT AudioProcessing : public rtc::RefCountInterface {
   // opening the file failed.
   virtual bool CreateAndAttachAecDump(const std::string& file_name,
                                       int64_t max_log_size_bytes,
-                                      rtc::TaskQueue* worker_queue) = 0;
+                                      ksrtc::TaskQueue* worker_queue) = 0;
   virtual bool CreateAndAttachAecDump(FILE* handle,
                                       int64_t max_log_size_bytes,
-                                      rtc::TaskQueue* worker_queue) = 0;
+                                      ksrtc::TaskQueue* worker_queue) = 0;
 
   // TODO(webrtc:5298) Deprecated variant.
   // Attaches provided WEBRTC_NAMESAPCE::AecDump for recording debugging
@@ -755,7 +755,7 @@ class RTC_EXPORT AudioProcessingBuilder {
   }
   // The AudioProcessingBuilder takes ownership of the echo_detector.
   AudioProcessingBuilder& SetEchoDetector(
-      rtc::scoped_refptr<EchoDetector> echo_detector) {
+      ksrtc::scoped_refptr<EchoDetector> echo_detector) {
     echo_detector_ = std::move(echo_detector);
     return *this;
   }
@@ -774,7 +774,7 @@ class RTC_EXPORT AudioProcessingBuilder {
   std::unique_ptr<EchoControlFactory> echo_control_factory_;
   std::unique_ptr<CustomProcessing> capture_post_processing_;
   std::unique_ptr<CustomProcessing> render_pre_processing_;
-  rtc::scoped_refptr<EchoDetector> echo_detector_;
+  ksrtc::scoped_refptr<EchoDetector> echo_detector_;
   std::unique_ptr<CustomAudioAnalyzer> capture_analyzer_;
   RTC_DISALLOW_COPY_AND_ASSIGN(AudioProcessingBuilder);
 };
@@ -916,7 +916,7 @@ class CustomProcessing {
 };
 
 // Interface for an echo detector submodule.
-class EchoDetector : public rtc::RefCountInterface {
+class EchoDetector : public ksrtc::RefCountInterface {
  public:
   // (Re-)Initializes the submodule.
   virtual void Initialize(int capture_sample_rate_hz,
@@ -925,11 +925,11 @@ class EchoDetector : public rtc::RefCountInterface {
                           int num_render_channels) = 0;
 
   // Analysis (not changing) of the render signal.
-  virtual void AnalyzeRenderAudio(rtc::ArrayView<const float> render_audio) = 0;
+  virtual void AnalyzeRenderAudio(ksrtc::ArrayView<const float> render_audio) = 0;
 
   // Analysis (not changing) of the capture signal.
   virtual void AnalyzeCaptureAudio(
-      rtc::ArrayView<const float> capture_audio) = 0;
+      ksrtc::ArrayView<const float> capture_audio) = 0;
 
   // Pack an AudioBuffer into a vector<float>.
   static void PackRenderAudioBuffer(AudioBuffer* audio,

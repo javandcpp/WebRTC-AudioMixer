@@ -15,7 +15,7 @@
 
 #include <limits>
 
-namespace rtc {
+namespace ksrtc {
 namespace internal {
 
 enum DstSign { DST_UNSIGNED, DST_SIGNED };

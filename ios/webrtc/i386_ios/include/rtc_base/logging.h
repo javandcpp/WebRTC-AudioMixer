@@ -71,7 +71,7 @@
 #define RTC_LOG_ENABLED() 1
 #endif
 
-namespace rtc {
+namespace ksrtc {
 
 //////////////////////////////////////////////////////////////////////
 
@@ -120,7 +120,7 @@ class LogSink {
   virtual void OnLogMessage(const std::string& message) = 0;
 
  private:
-  friend class ::rtc::LogMessage;
+  friend class ::ksrtc::LogMessage;
 #if RTC_LOG_ENABLED()
   // Members for LogMessage class to keep linked list of the registered sinks.
   LogSink* next_ = nullptr;
@@ -443,7 +443,7 @@ class LogMessage {
   ~LogMessage();
 
   void AddTag(const char* tag);
-  rtc::StringBuilder& stream();
+  ksrtc::StringBuilder& stream();
   // Returns the time at which this function was called for the first time.
   // The time will be used as the logging start time.
   // If this is not called externally, the LogMessage ctor also calls it, in
@@ -517,7 +517,7 @@ class LogMessage {
   ~LogMessage() = default;
 
   inline void AddTag(const char* tag) {}
-  inline rtc::StringBuilder& stream() { return print_stream_; }
+  inline ksrtc::StringBuilder& stream() { return print_stream_; }
   inline static int64_t LogStartTime() { return 0; }
   inline static uint32_t WallClockStartTime() { return 0; }
   inline static void LogThreads(bool on = true) {}
@@ -600,7 +600,7 @@ class LogMessage {
 #endif  // RTC_LOG_ENABLED()
 
   // The stringbuilder that buffers the formatted message before output
-  rtc::StringBuilder print_stream_;
+  ksrtc::StringBuilder print_stream_;
 
   RTC_DISALLOW_COPY_AND_ASSIGN(LogMessage);
 };
@@ -610,17 +610,17 @@ class LogMessage {
 //////////////////////////////////////////////////////////////////////
 
 #define RTC_LOG_FILE_LINE(sev, file, line)        \
-  ::rtc::kswebrtc_logging_impl::LogCall() &         \
-      ::rtc::kswebrtc_logging_impl::LogStreamer<>() \
-          << ::rtc::kswebrtc_logging_impl::LogMetadata(file, line, sev)
+  ::ksrtc::kswebrtc_logging_impl::LogCall() &         \
+      ::ksrtc::kswebrtc_logging_impl::LogStreamer<>() \
+          << ::ksrtc::kswebrtc_logging_impl::LogMetadata(file, line, sev)
 
 #define RTC_LOG(sev)                        \
-  !rtc::LogMessage::IsNoop<::rtc::sev>() && \
-      RTC_LOG_FILE_LINE(::rtc::sev, __FILE__, __LINE__)
+  !ksrtc::LogMessage::IsNoop<::ksrtc::sev>() && \
+      RTC_LOG_FILE_LINE(::ksrtc::sev, __FILE__, __LINE__)
 
 // The _V version is for when a variable is passed in.
 #define RTC_LOG_V(sev) \
-  !rtc::LogMessage::IsNoop(sev) && RTC_LOG_FILE_LINE(sev, __FILE__, __LINE__)
+  !ksrtc::LogMessage::IsNoop(sev) && RTC_LOG_FILE_LINE(sev, __FILE__, __LINE__)
 
 // The _F version prefixes the message with the current function name.
 #if (defined(__GNUC__) && !defined(NDEBUG)) || defined(WANT_PRETTY_LOG_F)
@@ -632,19 +632,19 @@ class LogMessage {
 #define RTC_LOG_T_F(sev) RTC_LOG(sev) << this << ": " << __FUNCTION__ << ": "
 #endif
 
-#define RTC_LOG_CHECK_LEVEL(sev) ::rtc::LogCheckLevel(::rtc::sev)
-#define RTC_LOG_CHECK_LEVEL_V(sev) ::rtc::LogCheckLevel(sev)
+#define RTC_LOG_CHECK_LEVEL(sev) ::ksrtc::LogCheckLevel(::ksrtc::sev)
+#define RTC_LOG_CHECK_LEVEL_V(sev) ::ksrtc::LogCheckLevel(sev)
 
 inline bool LogCheckLevel(LoggingSeverity sev) {
   return (LogMessage::GetMinLogSeverity() <= sev);
 }
 
 #define RTC_LOG_E(sev, ctx, err)                                 \
-  !rtc::LogMessage::IsNoop<::rtc::sev>() &&                      \
-      ::rtc::kswebrtc_logging_impl::LogCall() &                    \
-          ::rtc::kswebrtc_logging_impl::LogStreamer<>()            \
-              << ::rtc::kswebrtc_logging_impl::LogMetadataErr {    \
-    {__FILE__, __LINE__, ::rtc::sev}, ::rtc::ERRCTX_##ctx, (err) \
+  !ksrtc::LogMessage::IsNoop<::ksrtc::sev>() &&                      \
+      ::ksrtc::kswebrtc_logging_impl::LogCall() &                    \
+          ::ksrtc::kswebrtc_logging_impl::LogStreamer<>()            \
+              << ::ksrtc::kswebrtc_logging_impl::LogMetadataErr {    \
+    {__FILE__, __LINE__, ::ksrtc::sev}, ::ksrtc::ERRCTX_##ctx, (err) \
   }
 
 #define RTC_LOG_T(sev) RTC_LOG(sev) << this << ": "
@@ -678,11 +678,11 @@ inline const char* AdaptString(const std::string& str) {
 }  // namespace WEBRTC_NAMESAPCE_logging_impl
 
 #define RTC_LOG_TAG(sev, tag)                                 \
-  !rtc::LogMessage::IsNoop(sev) &&                            \
-      ::rtc::kswebrtc_logging_impl::LogCall() &                 \
-          ::rtc::kswebrtc_logging_impl::LogStreamer<>()         \
-              << ::rtc::kswebrtc_logging_impl::LogMetadataTag { \
-    sev, ::rtc::kswebrtc_logging_impl::AdaptString(tag)         \
+  !ksrtc::LogMessage::IsNoop(sev) &&                            \
+      ::ksrtc::kswebrtc_logging_impl::LogCall() &                 \
+          ::ksrtc::kswebrtc_logging_impl::LogStreamer<>()         \
+              << ::ksrtc::kswebrtc_logging_impl::LogMetadataTag { \
+    sev, ::ksrtc::kswebrtc_logging_impl::AdaptString(tag)         \
   }
 
 #else
@@ -701,8 +701,8 @@ inline const char* AdaptString(const std::string& str) {
 #else
 #define RTC_DLOG_EAT_STREAM_PARAMS()                \
   while (false)                                     \
-  ::rtc::kswebrtc_logging_impl::LogMessageVoidify() & \
-      (::rtc::kswebrtc_logging_impl::LogStreamer<>())
+  ::ksrtc::kswebrtc_logging_impl::LogMessageVoidify() & \
+      (::ksrtc::kswebrtc_logging_impl::LogStreamer<>())
 #define RTC_DLOG(sev) RTC_DLOG_EAT_STREAM_PARAMS()
 #define RTC_DLOG_V(sev) RTC_DLOG_EAT_STREAM_PARAMS()
 #define RTC_DLOG_F(sev) RTC_DLOG_EAT_STREAM_PARAMS()

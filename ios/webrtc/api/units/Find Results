@@ -1,0 +1,42 @@
+Searching 690 files for "rtc_units_impl"
+
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/api/units/time_delta.h:
+   32  // different units, specifically seconds (s), milliseconds (ms) and
+   33  // microseconds (us).
+   34: class TimeDelta final : public rtc_units_impl::RelativeUnit<TimeDelta> {
+   35   public:
+   36    template <typename T>
+   ..
+   84  
+   85   private:
+   86:   friend class rtc_units_impl::UnitBase<TimeDelta>;
+   87    using RelativeUnit::RelativeUnit;
+   88    static constexpr bool one_sided = false;
+
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/api/units/timestamp.h:
+   28  // negative values are not valid. The most notable feature is that the
+   29  // difference of two Timestamps results in a TimeDelta.
+   30: class Timestamp final : public rtc_units_impl::UnitBase<Timestamp> {
+   31   public:
+   32    template <typename T>
+   ..
+  117  
+  118   private:
+  119:   friend class rtc_units_impl::UnitBase<Timestamp>;
+  120    using UnitBase::UnitBase;
+  121    static constexpr bool one_sided = true;
+
+/Users/huaweichang/Downloads/webrtc/ios/webrtc/rtc_base/units/unit_base.h:
+   23  
+   24  namespace WEBRTC_NAMESAPCE {
+   25: namespace ksrtc_units_impl {
+   26  
+   27  // UnitBase is a base class for implementing custom value types with a specific
+   ..
+  301  }
+  302  
+  303: }  // namespace rtc_units_impl
+  304  
+  305  }  // namespace WEBRTC_NAMESAPCE
+
+6 matches across 3 files

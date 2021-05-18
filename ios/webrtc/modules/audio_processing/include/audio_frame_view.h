@@ -44,16 +44,16 @@ class AudioFrameView {
 
   size_t samples_per_channel() const { return channel_size_; }
 
-  rtc::ArrayView<T> channel(size_t idx) {
+  ksrtc::ArrayView<T> channel(size_t idx) {
     RTC_DCHECK_LE(0, idx);
     RTC_DCHECK_LE(idx, num_channels_);
-    return rtc::ArrayView<T>(audio_samples_[idx], channel_size_);
+    return ksrtc::ArrayView<T>(audio_samples_[idx], channel_size_);
   }
 
-  rtc::ArrayView<const T> channel(size_t idx) const {
+  ksrtc::ArrayView<const T> channel(size_t idx) const {
     RTC_DCHECK_LE(0, idx);
     RTC_DCHECK_LE(idx, num_channels_);
-    return rtc::ArrayView<const T>(audio_samples_[idx], channel_size_);
+    return ksrtc::ArrayView<const T>(audio_samples_[idx], channel_size_);
   }
 
   T* const* data() { return audio_samples_; }

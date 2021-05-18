@@ -18,7 +18,7 @@
 #include "rtc_base/system/rtc_export.h"
 #include "rtc_base/system_time.h"
 
-namespace rtc {
+namespace ksrtc {
 
 static const int64_t kNumMillisecsPerSec = INT64_C(1000);
 static const int64_t kNumMicrosecsPerSec = INT64_C(1000000);
@@ -132,7 +132,7 @@ int64_t TmToSeconds(const tm& tm);
 // Note that this function obeys the system's idea about what the time
 // is. It is not guaranteed to be monotonic; it will jump in case the
 // system time is changed, e.g., by some other process calling
-// settimeofday. Always use rtc::TimeMicros(), not this function, for
+// settimeofday. Always use ksrtc::TimeMicros(), not this function, for
 // measuring time intervals and timeouts.
 int64_t TimeUTCMicros();
 

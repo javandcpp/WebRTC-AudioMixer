@@ -31,7 +31,7 @@ namespace WEBRTC_NAMESAPCE {
 // undefined. To simplify usage, it can be constructed and converted to
 // different units, specifically seconds (s), milliseconds (ms) and
 // microseconds (us).
-class TimeDelta final : public rtc_units_impl::RelativeUnit<TimeDelta> {
+class TimeDelta final : public ksrtc_units_impl::RelativeUnit<TimeDelta> {
  public:
   template <typename T>
   static constexpr TimeDelta Seconds(T value) {
@@ -83,7 +83,7 @@ class TimeDelta final : public rtc_units_impl::RelativeUnit<TimeDelta> {
   }
 
  private:
-  friend class rtc_units_impl::UnitBase<TimeDelta>;
+  friend class ksrtc_units_impl::UnitBase<TimeDelta>;
   using RelativeUnit::RelativeUnit;
   static constexpr bool one_sided = false;
 };

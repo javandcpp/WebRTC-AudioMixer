@@ -19,7 +19,7 @@
 namespace WEBRTC_NAMESAPCE {
 
 int DefaultOutputRateCalculator::CalculateOutputRateFromRange(
-    rtc::ArrayView<const int> preferred_sample_rates) {
+    ksrtc::ArrayView<const int> preferred_sample_rates) {
   if (preferred_sample_rates.empty()) {
     return DefaultOutputRateCalculator::kDefaultFrequency;
   }

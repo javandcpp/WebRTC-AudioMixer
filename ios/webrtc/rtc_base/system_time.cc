@@ -9,7 +9,7 @@
  */
 
 // If WEBRTC_EXCLUDE_SYSTEM_TIME is set, an implementation of
-// rtc::SystemTimeNanos() must be provided externally.
+// ksrtc::SystemTimeNanos() must be provided externally.
 #ifndef WEBRTC_EXCLUDE_SYSTEM_TIME
 
 #include <stdint.h>
@@ -38,7 +38,7 @@
 #include "rtc_base/system_time.h"
 #include "rtc_base/time_utils.h"
 
-namespace rtc {
+namespace ksrtc {
 
 int64_t SystemTimeNanos() {
   int64_t ticks;
@@ -56,7 +56,7 @@ int64_t SystemTimeNanos() {
     RTC_DCHECK_NE(b, 0);
     RTC_DCHECK_LE(a, std::numeric_limits<int64_t>::max() / b)
         << "The multiplication " << a << " * " << b << " overflows";
-    return rtc::dchecked_cast<int64_t>(a * b);
+    return ksrtc::dchecked_cast<int64_t>(a * b);
   };
   ticks = mul(mach_absolute_time(), timebase.numer) / timebase.denom;
 #elif defined(WEBRTC_POSIX)

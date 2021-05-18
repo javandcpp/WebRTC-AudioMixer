@@ -10,7 +10,7 @@
 
 #include "rtc_base/string_utils.h"
 
-namespace rtc {
+namespace ksrtc {
 
 size_t strcpyn(char* buffer,
                size_t buflen,

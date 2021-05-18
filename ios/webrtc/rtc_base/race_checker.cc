@@ -10,7 +10,7 @@
 
 #include "rtc_base/race_checker.h"
 
-namespace rtc {
+namespace ksrtc {
 
 RaceChecker::RaceChecker() {}
 

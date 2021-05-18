@@ -18,9 +18,9 @@
 #include "rtc_base/checks.h"
 #include "rtc_base/numerics/safe_minmax.h"
 
-namespace rtc {
+namespace ksrtc {
 
-SimpleStringBuilder::SimpleStringBuilder(rtc::ArrayView<char> buffer)
+SimpleStringBuilder::SimpleStringBuilder(ksrtc::ArrayView<char> buffer)
     : buffer_(buffer) {
   buffer_[0] = '\0';
   RTC_DCHECK(IsConsistent());
@@ -92,7 +92,7 @@ SimpleStringBuilder& SimpleStringBuilder::AppendFormat(const char* fmt, ...) {
   const int len =
       std::vsnprintf(&buffer_[size_], buffer_.size() - size_, fmt, args);
   if (len >= 0) {
-    const size_t chars_added = rtc::SafeMin(len, buffer_.size() - 1 - size_);
+    const size_t chars_added = ksrtc::SafeMin(len, buffer_.size() - 1 - size_);
     size_ += chars_added;
     RTC_DCHECK_EQ(len, chars_added) << "Buffer size was insufficient";
   } else {
@@ -110,7 +110,7 @@ SimpleStringBuilder& SimpleStringBuilder::Append(const char* str,
                                                  size_t length) {
   RTC_DCHECK_LT(size_ + length, buffer_.size())
       << "Buffer size was insufficient";
-  const size_t chars_added = rtc::SafeMin(length, buffer_.size() - size_ - 1);
+  const size_t chars_added = ksrtc::SafeMin(length, buffer_.size() - size_ - 1);
   memcpy(&buffer_[size_], str, chars_added);
   size_ += chars_added;
   buffer_[size_] = '\0';

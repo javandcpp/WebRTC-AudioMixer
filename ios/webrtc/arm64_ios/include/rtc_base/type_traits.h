@@ -14,7 +14,7 @@
 #include <cstddef>
 #include <type_traits>
 
-namespace rtc {
+namespace ksrtc {
 
 // Determines if the given class has zero-argument .data() and .size() methods
 // whose return values are convertible to T* and size_t, respectively.

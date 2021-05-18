@@ -38,9 +38,9 @@ class AudioMixerImpl : public AudioMixer {
   static const int kFrameDurationInMs = 10;
   enum : int { kMaximumAmountOfMixedAudioSources = 3 };
 
-  static rtc::scoped_refptr<AudioMixerImpl> Create();
+  static ksrtc::scoped_refptr<AudioMixerImpl> Create();
 
-  static rtc::scoped_refptr<AudioMixerImpl> Create(
+  static ksrtc::scoped_refptr<AudioMixerImpl> Create(
       std::unique_ptr<OutputRateCalculator> output_rate_calculator,
       bool use_limiter);
 
@@ -69,7 +69,7 @@ class AudioMixerImpl : public AudioMixer {
   // Compute what audio sources to mix from audio_source_list_. Ramp
   // in and out. Update mixed status. Mixes up to
   // kMaximumAmountOfMixedAudioSources audio sources.
-  rtc::ArrayView<AudioFrame* const> GetAudioFromSources(int output_frequency)
+  ksrtc::ArrayView<AudioFrame* const> GetAudioFromSources(int output_frequency)
       RTC_EXCLUSIVE_LOCKS_REQUIRED(mutex_);
 
   // The critical section lock guards audio source insertion and

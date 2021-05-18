@@ -11,7 +11,7 @@
 #ifndef RTC_BASE_SYSTEM_TIME_H_
 #define RTC_BASE_SYSTEM_TIME_H_
 
-namespace rtc {
+namespace ksrtc {
 
 // Returns the actual system time, even if a clock is set for testing.
 // Useful for timeouts while using a test clock, or for logging.

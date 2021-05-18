@@ -22,7 +22,7 @@
 #include "ksconfig.h"
 
 namespace WEBRTC_NAMESAPCE {
-namespace rtc_units_impl {
+namespace ksrtc_units_impl {
 
 // UnitBase is a base class for implementing custom value types with a specific
 // unit. It provides type safety and commonly useful operations. The underlying
@@ -99,7 +99,7 @@ class UnitBase {
       RTC_DCHECK_GE(value, 0);
     RTC_DCHECK_GT(value, MinusInfinityVal());
     RTC_DCHECK_LT(value, PlusInfinityVal());
-    return Unit_T(rtc::dchecked_cast<int64_t>(value));
+    return Unit_T(ksrtc::dchecked_cast<int64_t>(value));
   }
   template <typename T,
             typename std::enable_if<std::is_floating_point<T>::value>::type* =
@@ -111,7 +111,7 @@ class UnitBase {
       return MinusInfinity();
     } else {
       RTC_DCHECK(!std::isnan(value));
-      return FromValue(rtc::dchecked_cast<int64_t>(value));
+      return FromValue(ksrtc::dchecked_cast<int64_t>(value));
     }
   }
 
@@ -123,7 +123,7 @@ class UnitBase {
       RTC_DCHECK_GE(value, 0);
     RTC_DCHECK_GT(value, MinusInfinityVal() / denominator);
     RTC_DCHECK_LT(value, PlusInfinityVal() / denominator);
-    return Unit_T(rtc::dchecked_cast<int64_t>(value * denominator));
+    return Unit_T(ksrtc::dchecked_cast<int64_t>(value * denominator));
   }
   template <typename T,
             typename std::enable_if<std::is_floating_point<T>::value>::type* =
@@ -136,7 +136,7 @@ class UnitBase {
   constexpr typename std::enable_if<std::is_integral<T>::value, T>::type
   ToValue() const {
     RTC_DCHECK(IsFinite());
-    return rtc::dchecked_cast<T>(value_);
+    return ksrtc::dchecked_cast<T>(value_);
   }
   template <typename T>
   constexpr typename std::enable_if<std::is_floating_point<T>::value, T>::type
@@ -156,10 +156,10 @@ class UnitBase {
   ToFraction() const {
     RTC_DCHECK(IsFinite());
     if (Unit_T::one_sided) {
-      return rtc::dchecked_cast<T>(
+      return ksrtc::dchecked_cast<T>(
           DivRoundPositiveToNearest(value_, Denominator));
     } else {
-      return rtc::dchecked_cast<T>(DivRoundToNearest(value_, Denominator));
+      return ksrtc::dchecked_cast<T>(DivRoundToNearest(value_, Denominator));
     }
   }
   template <int64_t Denominator, typename T>
@@ -181,7 +181,7 @@ class UnitBase {
   ToMultiple() const {
     RTC_DCHECK_GE(ToValue(), std::numeric_limits<T>::min() / Factor);
     RTC_DCHECK_LE(ToValue(), std::numeric_limits<T>::max() / Factor);
-    return rtc::dchecked_cast<T>(ToValue() * Factor);
+    return ksrtc::dchecked_cast<T>(ToValue() * Factor);
   }
   template <int64_t Factor, typename T>
   constexpr typename std::enable_if<std::is_floating_point<T>::value, T>::type

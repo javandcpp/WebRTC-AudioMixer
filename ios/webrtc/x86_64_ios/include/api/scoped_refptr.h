@@ -66,7 +66,7 @@
 #include <memory>
 #include <utility>
 
-namespace rtc {
+namespace ksrtc {
 
 template <class T>
 class scoped_refptr {

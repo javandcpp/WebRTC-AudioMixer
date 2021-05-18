@@ -33,7 +33,7 @@ constexpr float kAttackFirstSubframeInterpolationPower = 8.f;
 
 void InterpolateFirstSubframe(float last_factor,
                               float current_factor,
-                              rtc::ArrayView<float> subframe) {
+                              ksrtc::ArrayView<float> subframe) {
   const auto n = subframe.size();
   constexpr auto p = kAttackFirstSubframeInterpolationPower;
   for (size_t i = 0; i < n; ++i) {
@@ -45,17 +45,17 @@ void InterpolateFirstSubframe(float last_factor,
 void ComputePerSampleSubframeFactors(
     const std::array<float, kSubFramesInFrame + 1>& scaling_factors,
     size_t samples_per_channel,
-    rtc::ArrayView<float> per_sample_scaling_factors) {
+    ksrtc::ArrayView<float> per_sample_scaling_factors) {
   const size_t num_subframes = scaling_factors.size() - 1;
   const size_t subframe_size =
-      rtc::CheckedDivExact(samples_per_channel, num_subframes);
+      ksrtc::CheckedDivExact(samples_per_channel, num_subframes);
 
   // Handle first sub-frame differently in case of attack.
   const bool is_attack = scaling_factors[0] > scaling_factors[1];
   if (is_attack) {
     InterpolateFirstSubframe(
         scaling_factors[0], scaling_factors[1],
-        rtc::ArrayView<float>(
+        ksrtc::ArrayView<float>(
             per_sample_scaling_factors.subview(0, subframe_size)));
   }
 
@@ -71,14 +71,14 @@ void ComputePerSampleSubframeFactors(
   }
 }
 
-void ScaleSamples(rtc::ArrayView<const float> per_sample_scaling_factors,
+void ScaleSamples(ksrtc::ArrayView<const float> per_sample_scaling_factors,
                   AudioFrameView<float> signal) {
   const size_t samples_per_channel = signal.samples_per_channel();
   RTC_DCHECK_EQ(samples_per_channel, per_sample_scaling_factors.size());
   for (size_t i = 0; i < signal.num_channels(); ++i) {
     auto channel = signal.channel(i);
     for (size_t j = 0; j < samples_per_channel; ++j) {
-      channel[j] = rtc::SafeClamp(channel[j] * per_sample_scaling_factors[j],
+      channel[j] = ksrtc::SafeClamp(channel[j] * per_sample_scaling_factors[j],
                                   kMinFloatS16Value, kMaxFloatS16Value);
     }
   }
@@ -116,7 +116,7 @@ void Limiter::Process(AudioFrameView<float> signal) {
   const size_t samples_per_channel = signal.samples_per_channel();
   RTC_DCHECK_LE(samples_per_channel, kMaximalNumberOfSamplesPerChannel);
 
-  auto per_sample_scaling_factors = rtc::ArrayView<float>(
+  auto per_sample_scaling_factors = ksrtc::ArrayView<float>(
       &per_sample_scaling_factors_[0], samples_per_channel);
   ComputePerSampleSubframeFactors(scaling_factors_, samples_per_channel,
                                   per_sample_scaling_factors);
